@@ -486,6 +486,16 @@ if(isBlackJack(playerhand) && (isBlackJack(dealerhand))){
 cout<<"Its a tie!"<<endl;
 return 69420;
 }
+if(getHandSum(playerhand) == getHandSum(dealerhand)){
+cout<<endl;
+cout<<"player's final hand:"<<endl;
+printHand(playerhand);
+cout<<endl<<"dealers final hand:"<<endl;
+printHand(dealerhand);
+cout<<"its a tie!"<<endl;
+return 69420;
+}
+
 /*cout<<endl;
 cout<<"player's final hand:"<<endl;
 printHand(playerhand);
@@ -514,6 +524,7 @@ int main(){
 //return 0;
 //testing complete
 srand((int)time(0));
+//srand(1570);
 bal= rand() %(900) + 100;
 double initbal=bal;
 int wins=0;
@@ -536,6 +547,7 @@ wb++;
 updatePlayerBalance(wager);
 break;
 case 69420:
+cout<<"its a Tie!"<<endl;
 ties++;
 break;
 case -1:
