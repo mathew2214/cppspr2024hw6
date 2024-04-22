@@ -492,7 +492,7 @@ cout<<"player's final hand:"<<endl;
 printHand(playerhand);
 cout<<endl<<"dealers final hand:"<<endl;
 printHand(dealerhand);
-cout<<"its a tie!"<<endl;
+//cout<<"its a tie!"<<endl;
 return 69420;
 }
 
