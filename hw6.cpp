@@ -8,7 +8,7 @@
 #include <codecvt>
 #include <cstdlib> 
 #include "card.hpp"
-
+#include <ctime>
 
 //i would love to know how many other students actually render the cards. 
 //cards are objects
@@ -513,7 +513,7 @@ int main(){
 //}
 //return 0;
 //testing complete
-srand(1570);
+srand((int)time(0));
 bal= rand() %(900) + 100;
 double initbal=bal;
 int wins=0;
