@@ -558,6 +558,7 @@ break;
 case -2:
 DisplayOutCome(0);
 updatePlayerBalance(wager * -1);
+lb++;
 ;break;
 case 30:
 displayGameSummary(wins, loss, ties, initbal, wb, lb);
