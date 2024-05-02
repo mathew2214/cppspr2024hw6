@@ -9,8 +9,15 @@
 #include <sstream>
 #include <string>
 #include <vector>
+//this is literally just a more stable version of my homework 5. which i think is the whole point here?
+//anyways, still very unoptimized, -O2 and -march=haswell gets it down to 10,993 instructions. so my i7-4800mq should be able to do everything in less than a second anyways. 
+//this is ABOLSUTLEY NOT NT or DOS compatible. im relying on alot of POSIX-specific stuff here. NT likes to have all its characters as utf-16, which i refuse to impliment. 
+//playing cards can be rendered as they are just utf-8 characters, and xterm-256color has full utf-8 support. however, in utf-32 the table is layed out in a very convienent way for us to just do math. 
+//so, we use utf-32 for when we want to do math on cards, and utf-8 is just for rendering them. we'll have to convert between these formats quite a bit. 
 
-// i would love to know how many other students actually render the cards.
+//in the last assignment, you said i did things outside the scope of this class. and i agree. maybe S&T should just accept my transfer credits for my C++ classes and i wont have to find ways to make these assignments interesting. 
+// i would love to know how many other students actually render the cards. tbh the hex math and binary manipulation is the only reason i actually cared about this assignment. 
+
 // cards are objects
 // decks are vectors of card objects
 // hands are just really small decks
@@ -304,7 +311,7 @@ int PlayBlackJack() {
   string blankcard = "\U0001f0a0";
 
   // okay, now that we have ways to get data about cards, lets create our card
-  // objects. we're gonna steal the setup of our rendering test to make our
+  // objects. we're gonna steal the setup of our rendering test (from hw5) to make our
   // table's deck.
 
   vector<card> tabledeck;
@@ -555,27 +562,10 @@ int PlayBlackJack() {
 
 int main() {
 
-  // wstring_convert<codecvt_utf8<char32_t>, char32_t> utf32_to_utf8; //make an
-  // object "utf32_to_utf8 to convert my integers into renderable characters
-  // string blankcard="\U0001f0a0";
-  // just testing our ability to render cards, and get their utf32 code as a hex
-  // integer, blackjack does math, i refuse to make a lookup table of cards and
-  // their values for (int i=0; i<=63;i++){
-  // if(IsCardValid(utf32_to_utf8.to_bytes(GetCardNum(blankcard) + i))) {//dont
-  // try to render cards with value of zero, for each suit. because they dont
-  // exist, there is no card below on ace. cout<<"
-  // "<<utf32_to_utf8.to_bytes(GetCardNum(blankcard) + i); cout<<" "<<
-  // GetCardName(utf32_to_utf8.to_bytes(GetCardNum(blankcard) + i)); cout<<" of
-  // "<<GetCardSuit(utf32_to_utf8.to_bytes(GetCardNum(blankcard) + i)); cout<<".
-  // score: "<< dec<<GetCardWorth(utf32_to_utf8.to_bytes(GetCardNum(blankcard) +
-  // i)); cout<<endl;
-  // }// //use the to_bytes method of our wstring_convert instance to convert
-  // our integers into renderable utf-8 character
-  // }
-  // return 0;
-  // testing complete
-  srand((int)time(0));
-  // srand(1570);
+
+  //srand((int)time(0));
+  srand(1570);
+  //why are we not supposed to use actual randomness?
   bal = rand() % (900) + 100;
   double initbal = bal;
   int wins = 0;
@@ -610,7 +600,6 @@ int main() {
       DisplayOutCome(0);
       updatePlayerBalance(wager * -1);
       lb++;
-      ;
       break;
     case 30:
       displayGameSummary(wins, loss, ties, initbal, wb, lb);
